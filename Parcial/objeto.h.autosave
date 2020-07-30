@@ -1,0 +1,28 @@
+#ifndef OBJETO_H
+#define OBJETO_H
+
+#include <QGraphicsItem>
+#include <QPixmap>
+#include <QObject>
+#include <QPainter>
+#include <cmath>
+
+class Objeto : public QObject, public QGraphicsItem, public QPainter 
+        
+    Q_OBJECT
+public:
+    explicit Objeto(QObject *parent = nullptr);
+    ~Objeto();
+    
+    QRectF boundingRect() const;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
+    
+    private:
+    
+
+signals:
+
+public slots:
+};
+
+#endif // OBJETO_H
