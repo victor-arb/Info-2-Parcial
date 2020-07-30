@@ -13,11 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(0,0,1000,800);
     setFocusPolicy(Qt::StrongFocus);
-    planeta1=new Planeta(0,0,0,0,5000,25, Qt::black);
-    planeta2=new Planeta(-500,0,0,-2,70,70, Qt::blue);
-    planeta3=new Planeta(500,0,0,2,70,70, Qt::red);
-    planeta4=new Planeta(0,-500,6,-3,70,70, Qt::yellow);
-    planeta5=new Planeta(0,500,6,-3,70,70, Qt::green);
+    planeta1=new Planeta(0,0,0,0,5000,100, Qt::black);
+    planeta2=new Planeta(-500,0,0,-2,70,35, Qt::blue);
+    planeta3=new Planeta(500,0,0,2,70,35, Qt::red);
+    planeta4=new Planeta(0,-500,6,-3,70,35, Qt::yellow);
+    planeta5=new Planeta(0,500,6,-3,70,35, Qt::green);
 
     scene->addItem(planeta1);
     scene->addItem(planeta2);
