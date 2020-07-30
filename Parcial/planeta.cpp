@@ -1,6 +1,7 @@
 #include "planeta.h"
+#include <QPainter>
 
-Planeta::Planeta(double posx, double posy, double velx, double vely, double masa, double r, Qt::GlobalColor _color, QObject *parent) : QObject(parent)
+Planeta::Planeta(double posx, double posy, double velx, double vely, double masa, double r, Qt::GlobalColor _color)
 {
     PX = posx;
     PY = posy;
@@ -10,11 +11,19 @@ Planeta::Planeta(double posx, double posy, double velx, double vely, double masa
     AY = 0;
     //V = 0;
     dt = 1;
-    setPos(PX,PY);
+//    setPos(QPointF(0,0)-QPointF((painter->boundingRect().width()/2)+500,
+//                                              painter->boundingRect().height()/2));
+
     color = _color;
-    G = 6.67384*(pow(10,-11));
+    G = 8;
     R = r;
     mass = masa;
+    setPos(PX,PY);
+}
+
+Planeta::~Planeta()
+{
+
 }
 double Planeta::get_PosX()
 {

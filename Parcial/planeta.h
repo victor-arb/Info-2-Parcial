@@ -12,7 +12,7 @@ class Planeta : public QObject, public QGraphicsItem, public QPainter
 {
     Q_OBJECT
 public:
-    explicit Planeta(double posx, double posy, double velx, double vely, double masa, double r, Qt::GlobalColor _color, QObject *parent=nullptr);
+    Planeta(double posx, double posy, double velx, double vely, double masa, double r, Qt::GlobalColor _color);
     ~Planeta();
 
     //Metodos setters y getters

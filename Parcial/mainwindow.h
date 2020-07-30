@@ -1,15 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-
-#include "planeta.h"
-#include "objeto.h"
 #include <QMainWindow>
-#include <QMainWindow>
+#include <planeta.h>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QTimer>
-#include <QKeyEvent>
+#include <QList>
 
 namespace Ui {
 class MainWindow;
@@ -22,19 +19,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void keyPressEvent(QKeyEvent *evento);
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
-    Planeta * planeta1;
-    Planeta * planeta2;
-    Planeta * planeta3;
-    Planeta * planeta4;
-    Planeta * planeta5;
+
+    Planeta *planeta1, *planeta2, *planeta3;
+
+signals:
+
+public slots:
+    //void Actualizar();
+    //int planetacollision(Cuerpo *);
+private slots:
 
 };
-
-void keyPressEvent(QKeyEvent *evento);
-
 
 #endif // MAINWINDOW_H

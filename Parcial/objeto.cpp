@@ -1,4 +1,5 @@
 #include "objeto.h"
+#include <QPainter>
 
 Objeto::Objeto(QObject *parent) : QObject(parent)
 {
@@ -14,6 +15,11 @@ Objeto::Objeto(QObject *parent) : QObject(parent)
     connect(timerDown, &QTimer::timeout,[=](){
         Movimiento();
     });
+    timerDown->start();
+}
+
+Objeto::~Objeto()
+{
 
 }
 
@@ -36,5 +42,5 @@ void Objeto::Movimiento()
     aceY=(-((k*(velY*velY)*(25*25))/70)*sin(90))+g;
     velY=velY+aceY*dt;
     posY=posY+velY*dt-((dt*dt)*aceY*0.5);
-    setPos(-500,posY);
+    setPos(posX,-350);
 }
