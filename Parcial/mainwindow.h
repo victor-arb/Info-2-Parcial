@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <planeta.h>
+#include "objeto.h"
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QTimer>
@@ -20,11 +21,16 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void keyPressEvent(QKeyEvent *evento);
+    void Actualizar();
+
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
+    QTimer * timer;
+    Planeta *planeta1, *planeta2, *planeta3, *planeta4, *planeta5;
 
-    Planeta *planeta1, *planeta2, *planeta3;
 
 signals:
 

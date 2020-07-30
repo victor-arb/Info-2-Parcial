@@ -1,6 +1,7 @@
 #ifndef OBJETO_H
 #define OBJETO_H
 
+#include "planeta.h"
 #include <QGraphicsItem>
 #include <QPixmap>
 #include <QObject>
@@ -14,7 +15,7 @@ class Objeto : public QObject, public QGraphicsItem, public QPainter
 {
     Q_OBJECT
 public:
-    explicit Objeto(QObject *parent = nullptr);
+    Objeto();
     ~Objeto();
 
     QRectF boundingRect() const;
@@ -22,6 +23,7 @@ public:
 
 
     void Movimiento();
+    void colisiones();
 
 
 private:

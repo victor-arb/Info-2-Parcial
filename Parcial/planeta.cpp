@@ -11,14 +11,11 @@ Planeta::Planeta(double posx, double posy, double velx, double vely, double masa
     AY = 0;
     //V = 0;
     dt = 1;
-//    setPos(QPointF(0,0)-QPointF((painter->boundingRect().width()/2)+500,
-//                                              painter->boundingRect().height()/2));
-
     color = _color;
     G = 8;
     R = r;
     mass = masa;
-    setPos(PX,PY);
+    setPos(PX+500,PY+400);
 }
 
 Planeta::~Planeta()

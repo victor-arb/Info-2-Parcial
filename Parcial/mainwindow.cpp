@@ -1,21 +1,35 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     scene = new QGraphicsScene;
-    ui->graphicsView->setStyleSheet("background-color:black;");
+    //ui->graphicsView->setStyleSheet("background-color:black;");
     ui->graphicsView->setScene(scene);
-    scene->setSceneRect(0,0,5000,5000);
-    planeta1=new Planeta(350,250,0,0,5000,25, Qt::yellow);
-    planeta2=new Planeta(420,300,10,0,700,15, Qt::cyan);
-    planeta3=new Planeta(470,350,6,-3,600,10, Qt::red);
+    scene->setSceneRect(0,0,1000,800);
+    setFocusPolicy(Qt::StrongFocus);
+    planeta1=new Planeta(0,0,0,0,5000,25, Qt::black);
+    planeta2=new Planeta(-500,0,0,-2,70,70, Qt::blue);
+    planeta3=new Planeta(500,0,0,2,70,70, Qt::red);
+    planeta4=new Planeta(0,-500,6,-3,70,70, Qt::yellow);
+    planeta5=new Planeta(0,500,6,-3,70,70, Qt::green);
+
     scene->addItem(planeta1);
     scene->addItem(planeta2);
     scene->addItem(planeta3);
+    scene->addItem(planeta4);
+    scene->addItem(planeta5);
+
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout,[=](){
+        Actualizar();
+    });
+    timer->start(33);
 
 //    connect(timer,SIGNAL(timeout()),this,SLOT(Actualizar()));
 //    timer->start(30);
@@ -26,3 +40,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::keyPressEvent(QKeyEvent *evento)
+{
+    qDebug()<<"Tecla presionada";
+    if (evento->key() == Qt::Key_Space){
+        Objeto * objeto = new Objeto();
+        scene->addItem(objeto);
+
+    }
+}
+
+void MainWindow::Actualizar()
+{
+    planeta2->Actualizar(planeta1);
+    planeta3->Actualizar(planeta1);
+    planeta4->Actualizar(planeta1);
+    planeta5->Actualizar(planeta1);
+}
